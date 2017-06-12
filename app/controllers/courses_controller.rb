@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all
 
+    @current_user = current_person
     if params[:title]
       @courses = @courses.where("lower(title) like ?", "%#{params[:title]}%")
     end
